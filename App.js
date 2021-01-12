@@ -3,22 +3,16 @@ import {View, Text, Button, StyleSheet, ScrollView} from 'react-native';
  
 export default class App extends Component{
  
-
-    constructor(){
-        super();
-        this.state={
-            text:"",
-        };
-    }
-    
+    state = {
+      data: "먼저값"};
     render(){
-      
+      const {data} = this.state;
         return(
             <View style={{flex:1, padding:16}}>
                 <Button title="fetch data from network" onPress={this.fetchData}></Button>
                 <ScrollView style={styles.scroll}>
                     {/* Text에 보여줄 글씨는 바뀔 것이므로 state변수로 사용*/}
-                    <Text style={styles.text}>{this.state.text}</Text> 
+                    <Text style={styles.text}>{data}</Text> 
                 </ScrollView>
             </View>
         );
@@ -34,6 +28,9 @@ export default class App extends Component{
         if(request.status ===200){
           console.log('success',request.responseText);
           //여기서 값 옮겨서 화면단에다가 출력할수있는방안찾기
+          this.setState({
+            data: request.responseText
+          })
         }else{
           console.warn('error');
         }
