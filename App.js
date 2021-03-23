@@ -35,7 +35,7 @@ export default class App extends Component{
           console.warn('error');
         }
       };
-      request.open('GET','https://innovation.kfsco.com:1750/PRHwz6V8nHDCklqx2FTUqzOL4af0yBxA7Eu6bIHHgNvcNrOLLCw7WXZgTXo9IjSVxMyRvrMLT4saTsqGUrQmhZpo8Jj1CDu6yNfC=KFS');
+      request.open('GET','APIURL');
       request.send();
     }// fetchDat method..
  
